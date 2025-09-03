@@ -9,8 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Default Local Group_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: c681c3e4c9b82c940b84cfdc84710219, type: 3}
+  m_Name: Resources_Database
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 822da85d9544017409e3ec5941bb8c7b, type: 2}
-  m_StaticContent: 0
+  resources:
+  - resourceName: 
+    icon: {fileID: 0}
+    prefab: {fileID: 0}
+    type: 0
+  - resourceName: 
+    icon: {fileID: 0}
+    prefab: {fileID: 0}
+    type: 0
