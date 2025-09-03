@@ -5,8 +5,8 @@ using _Game._Scripts.DataTypes;
 using UnityEngine;
 namespace _Game._Scripts.Utils {
   public static class ResourceUtils {
-    static Dictionary<ResourceType, ResourceEntry> _map;
-    static TaskCompletionSource<bool> _readyTcs = new();
+    private static Dictionary<ResourceType, ResourceEntry> _map;
+    static readonly TaskCompletionSource<bool> _readyTcs = new();
 
     public static Task Ready
       => _readyTcs.Task;

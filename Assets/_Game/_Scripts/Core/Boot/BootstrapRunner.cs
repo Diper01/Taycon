@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 namespace _Game._Scripts.Boot {
   public class BootstrapRunner : MonoBehaviour
   {
-    private readonly List<ILoader> loaders;
-    [SerializeField] private string nextSceneName = "Game";
+    private readonly List<ILoader> _loaders;
+    [SerializeField] private string _nextSceneName = "Game";
 
     private async void Awake() {
 
@@ -17,14 +17,14 @@ namespace _Game._Scripts.Boot {
       DontDestroyOnLoad(gameObject);
       await Addressables.InitializeAsync().Task;
 
-      var loaders = this.loaders.OfType<ILoader>().ToArray();
+      var loaders = this._loaders.OfType<ILoader>().ToArray();
       foreach (var l in loaders)
         await l.LoadAsync();
 
-      await SceneManager.LoadSceneAsync(nextSceneName);
+      await SceneManager.LoadSceneAsync(_nextSceneName);
     }
     private void AddLoaders () {
-      loaders.Add(new ResourcesDataLoader());
+      _loaders.Add(new ResourcesDataLoader());
     }
   }
 }

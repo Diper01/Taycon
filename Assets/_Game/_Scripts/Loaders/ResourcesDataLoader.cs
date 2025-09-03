@@ -6,11 +6,11 @@ namespace _Game._Scripts.Loaders {
  
   public class ResourcesDataLoader : ILoader
   {
-    private const string addressKey = "ResourcesData";
+    private const string ADDRESS_KEY = "ResourcesData";
 
     public async UniTask LoadAsync()
     {
-      var db = await Addressables.LoadAssetAsync<ResourcesData>(addressKey).Task;
+      var db = await Addressables.LoadAssetAsync<ResourcesData>(ADDRESS_KEY).Task;
       ResourceUtils.Initialize(db);
     }
   }
