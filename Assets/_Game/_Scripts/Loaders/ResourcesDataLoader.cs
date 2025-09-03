@@ -6,7 +6,7 @@ namespace _Game._Scripts.Loaders {
  
   public class ResourcesDataLoader : ILoader
   {
-    private const string ADDRESS_KEY = "ResourcesData";
+    private const string ADDRESS_KEY = "Assets/_Game/SO/Resources_moved/Resources_movedDatabase.asset";
 
     public async UniTask LoadAsync()
     {
