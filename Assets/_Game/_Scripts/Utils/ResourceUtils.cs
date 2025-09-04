@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _Game._Scripts.DataTypes;
+using _Game._Scripts.DataTypes.Resources;
 using UnityEngine;
 namespace _Game._Scripts.Utils {
   public static class ResourceUtils {

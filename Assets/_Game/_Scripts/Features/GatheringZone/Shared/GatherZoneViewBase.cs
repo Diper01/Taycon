@@ -1,4 +1,5 @@
 using _Game._Scripts.DataTypes;
+using _Game._Scripts.DataTypes.Resources;
 using _Game._Scripts.Features.GatheringZone.Shared;
 using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone {

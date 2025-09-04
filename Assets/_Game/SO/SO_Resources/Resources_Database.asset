@@ -13,11 +13,23 @@ MonoBehaviour:
   m_Name: Resources_Database
   m_EditorClassIdentifier: 
   resources:
-  - resourceName: 
-    icon: {fileID: 0}
-    prefab: {fileID: 3223890392997734678, guid: 820a59e0ef67ec54a9b07df1afe1bf86, type: 3}
+  - resourceName: Coal
+    icon: {fileID: 21300000, guid: 346f973450b56ec438133a89c455e34b, type: 3}
+    prefab: {fileID: 383282586856561209, guid: 3ddd6179c16b8b0419529f263b564e88, type: 3}
     type: 1
-  - resourceName: 
-    icon: {fileID: 0}
-    prefab: {fileID: 0}
+  - resourceName: Copper
+    icon: {fileID: 21300000, guid: 56abbefd40cb438409180e37ac1f0962, type: 3}
+    prefab: {fileID: 919132149155446097, guid: 2606eea66d22dc54f9b96494894b76f0, type: 3}
     type: 2
+  - resourceName: Gold
+    icon: {fileID: 21300000, guid: e098202fa7310ac4ca7332fd880f935e, type: 3}
+    prefab: {fileID: 826521387320792937, guid: 9737f38f54a41ec47b57ca2ba520f084, type: 3}
+    type: 3
+  - resourceName: Diamond
+    icon: {fileID: 21300000, guid: 2a652561906855940a9307c8253ac6cc, type: 3}
+    prefab: {fileID: 8421430371853900008, guid: f7d7d8ba6d1f6cf47ba04ab13cfa96ff, type: 3}
+    type: 4
+  - resourceName: Emerald
+    icon: {fileID: 21300000, guid: 0e4be62a0f67cfe48948894268ada167, type: 3}
+    prefab: {fileID: 919132149155446097, guid: bf83894b068337c4c967d2cc9aa6bc93, type: 3}
+    type: 5

@@ -1,5 +1,6 @@
-using _Game._Scripts.Features.GatheringZone;
+using _Game._Scripts.DataTypes.Zones;
 using _Game._Scripts.Features.GatheringZone.Shared.Factory;
+using _Game._Scripts.Features.GatheringZone.Shared.Factory.GatherZoneFactory;
 using UnityEngine;
 namespace _Game._Scripts.Features.MiningZones.MinerZone.Factory {
 
