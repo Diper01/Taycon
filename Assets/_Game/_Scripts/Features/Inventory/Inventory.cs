@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using _Game._Scripts.DataTypes;
+using _Game._Scripts.Core.Save.Service;
 using _Game._Scripts.DataTypes.Resources;
 using UnityEngine;
 namespace _Game._Scripts.Features.Inventory {
@@ -11,20 +11,22 @@ namespace _Game._Scripts.Features.Inventory {
       public int amount = 0;
     }
 
-    [Header("Start Resources")]
+    [Tooltip("Start Resources")]
     [SerializeField] private List<StartEntry> start = new();
 
     private readonly Dictionary<ResourceType, int> _map = new();
 
     public event Action<ResourceType, int> OnResourceChanged;
 
+    private ISaveStorage _saveStorage;
     private void Awake() {
+      _saveStorage = new JsonFileStorage();
       _map.Clear();
 
       foreach (var e in start)
         _map[e.type] = Mathf.Max(0, e.amount);
 
-      foreach (var kv in _map)
+      foreach (KeyValuePair<ResourceType, int> kv in _map)
         OnResourceChanged?.Invoke(kv.Key, kv.Value);
     }
 
@@ -34,6 +36,7 @@ namespace _Game._Scripts.Features.Inventory {
     public void Set (ResourceType type, int amount) {
       amount = Mathf.Max(0, amount);
       _map[type] = amount;
+      SaveService.SetResource(type, amount);
       OnResourceChanged?.Invoke(type, amount);
     }
 
