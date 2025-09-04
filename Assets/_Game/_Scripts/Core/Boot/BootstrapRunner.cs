@@ -6,9 +6,8 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 namespace _Game._Scripts.Boot {
-  public class BootstrapRunner : MonoBehaviour
-  {
-    private readonly List<ILoader> _loaders;
+  public class BootstrapRunner : MonoBehaviour {
+    private readonly List<ILoader> _loaders = new();
     [SerializeField] private string _nextSceneName = "Game";
 
     private async void Awake() {

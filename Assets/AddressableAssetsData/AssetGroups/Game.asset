@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 37d41b173920f194dab45dd4cd4c386d
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 292b819ab814e40468b01f4b2ed9660e
+    m_Address: Assets/_Game/SO/SO_Resources/Resources_Database.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 09ff032324992d54c98a7d9ce6be2992, type: 2}
   m_SchemaSet:
