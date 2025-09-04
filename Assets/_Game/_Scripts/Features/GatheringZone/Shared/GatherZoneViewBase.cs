@@ -1,4 +1,5 @@
 using _Game._Scripts.DataTypes;
+using _Game._Scripts.Features.GatheringZone.Shared;
 using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone {
   public class GatherZoneViewBase : MonoBehaviour, IGatherZoneView {
@@ -11,7 +12,7 @@ namespace _Game._Scripts.Features.GatheringZone {
     public Transform ParentForResourcePoint => _parentForResourcePoint;
 
     public void Initialize (ResourceType type) {
-      _presenter ??= new GatherZonePresenter(this,type);
+      _presenter ??= new GatherZonePresenter(this, type);
     }
   }
 }

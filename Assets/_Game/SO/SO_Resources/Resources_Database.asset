@@ -15,9 +15,9 @@ MonoBehaviour:
   resources:
   - resourceName: 
     icon: {fileID: 0}
-    prefab: {fileID: 0}
-    type: 0
+    prefab: {fileID: 3223890392997734678, guid: 820a59e0ef67ec54a9b07df1afe1bf86, type: 3}
+    type: 1
   - resourceName: 
     icon: {fileID: 0}
     prefab: {fileID: 0}
-    type: 0
+    type: 2
