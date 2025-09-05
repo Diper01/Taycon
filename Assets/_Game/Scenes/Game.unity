@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -753,7 +753,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 1
   orthographic size: 15
@@ -922,6 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2965150e7b3c4c3d9d83d0daae23b043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventory: {fileID: 229630000}
   _database: {fileID: 11400000, guid: f09d4b48d041fd441ac848a17bffa63f, type: 2}
   _spawnRoot: {fileID: 221562607}
   _offset: {x: 0, y: 0, z: 5}

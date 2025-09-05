@@ -6,10 +6,10 @@ using _Game._Scripts.Features.GatheringZone.ClosedZone;
 using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone.Controller {
   public class GatherZoneController : MonoBehaviour {
+    [SerializeField] private Inventory.Inventory _inventory;
     [SerializeField] private ZoneDatabase _database;
     [SerializeField] private Transform _spawnRoot;
     [SerializeField] private Vector3 _offset = new Vector3(5, 0, 0);
-
     private readonly List<GameObject> _spawned = new();
 
     private int _nextIndex = 0;
@@ -31,20 +31,29 @@ namespace _Game._Scripts.Features.GatheringZone.Controller {
         }
       }
     }
-    
+
     private GameObject SpawnClosed (int index) {
-      var pos = GetPosByIndex(index);
+      var pos = _spawnRoot.position + _offset * index;
       var args = new ZoneSpawnArgs(ResourceType.None, _spawnRoot, pos, Quaternion.identity);
       var go = _database.closedZoneFactory.Create(args);
-      go.name = $"ClosedZone_{index:D2}";
 
       var view = go.GetComponent<ClosedZoneView>();
+      view.Init(index);
 
-      if (view != null) {
-        view.Init(index, OnClosedPurchased);
+      var ctrl = new ClosedZoneController(view,_inventory,_database.zones[index].costs, OnPurchased);
+
+      go.name = $"ClosedZone_{index:D2}";
+      return go;
+    }
+
+    private void OnPurchased (int index) {
+      SaveService.IncrementBuiltZonesCount();
+
+      if (index >= 0 && index < _spawned.Count && _spawned[index] != null) {
+        Destroy(_spawned[index]);
       }
 
-      return go;
+      _spawned[index] = SpawnOpen(index);
     }
     private Vector3 GetPosByIndex (int index)
       => _spawnRoot.position + _offset * index;
@@ -57,17 +66,7 @@ namespace _Game._Scripts.Features.GatheringZone.Controller {
       zone.name = $"Zone_{index:D2}_{data.resourceType}";
       return zone;
     }
-    private void OnClosedPurchased (int index) {
-      if (index < 0 || index >= _spawned.Count)
-        return;
 
-      SaveService.IncrementBuiltZonesCount();
-
-      if (_spawned[index] != null)
-        Destroy(_spawned[index]);
-
-      _spawned[index] = SpawnOpen(index);
-    }
 
 
     private void SpawnAll() {
