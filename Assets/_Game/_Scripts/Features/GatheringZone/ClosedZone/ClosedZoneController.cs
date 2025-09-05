@@ -32,7 +32,6 @@ namespace _Game._Scripts.Features.GatheringZone.ClosedZone {
     }
 
     private void SetCost() {
-      Debug.Log("SetCost   " + _price.Length);
       _view.ResourcePriceSlotsView.Show(_price);
     }
   }

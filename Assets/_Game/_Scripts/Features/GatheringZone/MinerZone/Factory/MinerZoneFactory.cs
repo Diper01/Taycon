@@ -8,7 +8,6 @@ namespace _Game._Scripts.Features.GatheringZone.MinerZone.Factory {
     public override GameObject Create (ZoneSpawnArgs args) {
       var zone = base.Create(args);
       IGatherZoneView gatherZoneView = zone.GetComponent<IGatherZoneView>();
-      Debug.Log("Create");
       gatherZoneView.Initialize(args.Type);
       return zone;
     }

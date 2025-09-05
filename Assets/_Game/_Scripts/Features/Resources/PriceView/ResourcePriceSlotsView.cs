@@ -28,7 +28,6 @@ namespace _Game._Scripts.Features.Resources.PriceView {
       EnsurePool(price.Length);
 
       for (int i = 0; i < price.Length; i++) {
-        Debug.Log("Show");
         var p = price[i];
         var slot = _pool[i];
         slot.Enable();
