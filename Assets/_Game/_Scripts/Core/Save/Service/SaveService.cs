@@ -29,8 +29,6 @@ namespace _Game._Scripts.Core.Save.Service {
       _cache.SetAmount(type, amount);
     }
     
-    
-    
     public static SaveData Snapshot()
       => _cache;
 

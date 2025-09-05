@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Game._Scripts.Core.Save.Service;
 using _Game._Scripts.DataTypes.Resources;
 using _Game._Scripts.DataTypes.Zones;
 using UnityEngine;
@@ -11,14 +12,36 @@ namespace _Game._Scripts.Features.GatheringZone.Controller {
     private readonly List<GameObject> _spawned = new();
 
     private int _nextIndex = 0;
+
     private void Start() {
-      SpawnAll();
+      SpawnPurchased();
+    }
+
+    private void SpawnPurchased() {
+      do {
+        SpawnNext();
+      } while (_nextIndex < SaveService.GetBuiltZonesCount());
+
+      SpawnClosed();
+    }
+
+    private void SpawnClosed() {
+      while (_nextIndex > SaveService.GetBuiltZonesCount()) {
+        if (_nextIndex >= _database.zones.Length)
+          return;
+        
+        var pos = _spawnRoot.position + _offset * _nextIndex;
+        var args = new ZoneSpawnArgs(ResourceType.None, _spawnRoot, pos, Quaternion.identity);
+        var zone = _database.closedZoneFactory.Create(args );
+        _spawned.Add(zone);
+        _nextIndex++;
+      }
     }
 
     private void SpawnAll() {
-        while (_nextIndex < _database.zones.Length) {
-          SpawnNext();
-        }
+      while (_nextIndex < _database.zones.Length) {
+        SpawnNext();
+      }
     }
 
     private void SpawnNext() {

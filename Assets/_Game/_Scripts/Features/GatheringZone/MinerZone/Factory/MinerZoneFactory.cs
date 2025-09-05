@@ -5,8 +5,11 @@ using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone.MinerZone.Factory {
   [CreateAssetMenu(fileName = "MinerZoneFactory", menuName = "Game/Gathering Zone/Miner Zone Factory", order = 1)]
   public class MinerZoneFactory : GatherZoneFactoryBase, IGatherZoneFactory {
-    public GameObject Create (ZoneSpawnArgs args) {
+    public override GameObject Create (ZoneSpawnArgs args) {
       var zone = base.Create(args);
+      IGatherZoneView gatherZoneView = zone.GetComponent<IGatherZoneView>();
+      Debug.Log("Create");
+      gatherZoneView.Initialize(args.Type);
       return zone;
     }
   }

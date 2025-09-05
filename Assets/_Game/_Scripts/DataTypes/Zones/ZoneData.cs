@@ -9,5 +9,6 @@ namespace _Game._Scripts.DataTypes.Zones {
     public ResourceCost [] costs;
     public ResourceType resourceType;
     public GatherZoneFactoryBase gatherZoneFactory;
+      
   }
 }
