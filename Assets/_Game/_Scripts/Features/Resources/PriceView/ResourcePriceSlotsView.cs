@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using _Game._Scripts.DataTypes.Resources;
+using _Game._Scripts.Features.Inventory;
 using UnityEngine;
 namespace _Game._Scripts.Features.Resources.PriceView {
   public class ResourcePriceSlotsView : MonoBehaviour {
     [SerializeField] private ResourcePriceSlot _slotPrefab;
     [SerializeField] private Transform _container;
     [SerializeField] private int _initialPool = 8;
-    
+
     private readonly List<ResourcePriceSlot> _pool = new();
     private int _activeCount = 0;
 
@@ -18,29 +19,29 @@ namespace _Game._Scripts.Features.Resources.PriceView {
       HideAll();
     }
 
-    public void Show (List<ResourceStack> stacks) {
+    public void Show (ResourceCost [] price) {
       HideAll();
 
-      if (stacks == null || stacks.Count == 0)
+      if (price == null)
         return;
 
-      EnsurePool(stacks.Count);
+      EnsurePool(price.Length);
 
-      for (int i = 0; i < stacks.Count; i++) {
-        var s = stacks[i];
+      for (int i = 0; i < price.Length; i++) {
+        Debug.Log("Show");
+        var p = price[i];
         var slot = _pool[i];
-        slot.Show();
+        slot.Enable();
         slot.transform.SetParent(_container, false);
-
-        slot.Set(s.Type, s.Amount);
+        slot.Set(p.type, p.amount);
       }
 
-      _activeCount = stacks.Count;
+      _activeCount = price.Length;
     }
 
     public void HideAll() {
       for (int i = 0; i < _pool.Count; i++)
-        _pool[i].Hide();
+        _pool[i].Disable();
 
       _activeCount = 0;
     }
@@ -48,7 +49,7 @@ namespace _Game._Scripts.Features.Resources.PriceView {
     public void EnsurePool (int size) {
       while (_pool.Count < size) {
         var slot = Instantiate(_slotPrefab, _container);
-        slot.Hide();
+        slot.Disable();
         _pool.Add(slot);
       }
     }

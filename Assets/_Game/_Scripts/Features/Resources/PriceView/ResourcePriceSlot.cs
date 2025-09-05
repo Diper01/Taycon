@@ -26,5 +26,11 @@ namespace _Game._Scripts.Features.Resources.PriceView {
     public void Hide()
       => _canvasGroup.alpha = 0f;
     
+    public void Enable()
+      => gameObject.SetActive(true);
+    
+    public void Disable()
+      =>  gameObject.SetActive(false);
+
   }
 }

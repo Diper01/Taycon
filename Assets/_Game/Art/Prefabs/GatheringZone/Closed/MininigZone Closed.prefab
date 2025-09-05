@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321cb8d014af4026b810a3b381415508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resourcePriceSlotsView: {fileID: 6267706634038178546}
   _buyButton: {fileID: 6134560192968254987}
 --- !u!1 &3751100248105861959
 GameObject:
@@ -706,7 +707,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5025493450331754534}
   m_LocalRotation: {x: 0.26796883, y: -0, z: -0, w: 0.9634276}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1264,6 +1265,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2548398079259323442}
     m_Modifications:
+    - target: {fileID: 140793702307981605, guid: a279988096c56f145b2fa21550f2b696, type: 3}
+      propertyPath: m_ReverseArrangement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1157088120492910866, guid: a279988096c56f145b2fa21550f2b696, type: 3}
       propertyPath: m_Name
       value: ResourcePriceSlotsView
@@ -1358,6 +1363,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7319227025103107181, guid: a279988096c56f145b2fa21550f2b696, type: 3}
   m_PrefabInstance: {fileID: 3811269231599530197}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6267706634038178546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7070375255065870887, guid: a279988096c56f145b2fa21550f2b696, type: 3}
+  m_PrefabInstance: {fileID: 3811269231599530197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39226498e35e42dba8e732ab4ee6f8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6822190198322439808
 PrefabInstance:
   m_ObjectHideFlags: 0
