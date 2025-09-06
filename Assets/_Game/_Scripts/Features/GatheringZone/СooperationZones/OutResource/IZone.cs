@@ -5,7 +5,7 @@ namespace _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource {
     bool TryReserve(out Transform workSpot);
 
     void Release();
-    Transform Transform { get; }
+    Transform WorkSpot { get; }
     
     IResourceProvider Provider { get; }
   }

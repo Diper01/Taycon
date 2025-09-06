@@ -16,7 +16,7 @@ namespace _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource {
     }
     public void Release() => _occupied = false;
 
-    public Transform Transform => transform;
+    public Transform WorkSpot => _workSpot;
     public IResourceProvider Provider => _provider;
   }
 }

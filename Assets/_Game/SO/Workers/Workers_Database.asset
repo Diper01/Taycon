@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675d967ca4d349f5bc0ab2ce2f377c3a, type: 3}
+  m_Name: Workers_Database
+  m_EditorClassIdentifier: 
+  workers:
+  - workerName: Miner
+    prefab: {fileID: 8530840912059735279, guid: 5e1575e151862bb4d8bb4eac84a54568, type: 3}
+    type: 1
+  - workerName: Lumberjack
+    prefab: {fileID: 2453058611481269061, guid: 64a7bb493699f2147abe1e0b219b77e0, type: 3}
+    type: 2

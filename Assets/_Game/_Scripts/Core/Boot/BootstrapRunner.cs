@@ -17,7 +17,7 @@ namespace _Game._Scripts.Boot {
       DontDestroyOnLoad(gameObject);
       await Addressables.InitializeAsync().Task;
 
-      var loaders = this._loaders.OfType<ILoader>().ToArray();
+      var loaders = _loaders.OfType<ILoader>().ToArray();
 
       foreach (var l in loaders)
         await l.LoadAsync();
@@ -26,6 +26,7 @@ namespace _Game._Scripts.Boot {
     }
     private void AddLoaders() {
       _loaders.Add(new ResourcesDataLoader());
+      _loaders.Add(new WorkersDataLoader());
     }
 
     private async UniTask InitSave() {

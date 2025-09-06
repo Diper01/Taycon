@@ -32,5 +32,8 @@ namespace _Game._Scripts.Utils {
       => Get(type)?.icon;
     public static GameObject GetPrefab (ResourceType type)
       => Get(type)?.prefab;
+    
+    
+    
   }
 }

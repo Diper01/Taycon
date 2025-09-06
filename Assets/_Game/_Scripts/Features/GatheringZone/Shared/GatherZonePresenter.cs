@@ -18,7 +18,7 @@ namespace _Game._Scripts.Features.GatheringZone.Shared {
 
       SpawnResource(_type);
       _view.ZoneView.Provider.SetResourceType(_type);
-      _view.WorkerSpawner.SpawnWorker(_view.GetDropOffPointView());
+      _view.WorkerSpawner.SpawnWorker(_view.GetDropOffPointView(), type);
 
       _provider = _view.ZoneView.Provider;
       _provider.OnDepleted += HandleDepleted;

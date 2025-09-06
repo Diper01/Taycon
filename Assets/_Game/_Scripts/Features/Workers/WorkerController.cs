@@ -51,7 +51,7 @@ namespace _Game._Scripts.Features.Workers {
         while (!ct.IsCancellationRequested) {
           switch (_state) {
             case State.MovingToZone:
-              await MoveToAsync(_zone.transform.position, ct);
+              await MoveToAsync(_zone.WorkSpot.position, ct);
 
               if (ct.IsCancellationRequested)
                 return;
@@ -74,12 +74,7 @@ namespace _Game._Scripts.Features.Workers {
 
           await UniTask.Yield(PlayerLoopTiming.Update, ct);
         }
-      } catch (OperationCanceledException) {} catch (Exception e) {
-        Debug.LogException(e);
-      } finally {
-        SafeStopAgent();
-        _view.PlayMove(false);
-      }
+      } catch (OperationCanceledException ex) {}catch (Exception e) {} 
     }
 
     private async UniTask MoveToAsync (Vector3 target, CancellationToken ct) {
