@@ -9,11 +9,11 @@ namespace _Game._Scripts.Features.Workers {
 
     private WorkerController _controller;
 
-    void Start() {
+    private void Start() {
       SpawnWorker();
     }
 
-    void Update() {
+    private void Update() {
       _controller?.Tick(Time.deltaTime);
     }
 
