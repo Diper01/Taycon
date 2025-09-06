@@ -13,14 +13,6 @@ MonoBehaviour:
   m_Name: Resources_Database
   m_EditorClassIdentifier: 
   resources:
-  - resourceName: Coal
-    icon: {fileID: 21300000, guid: 346f973450b56ec438133a89c455e34b, type: 3}
-    prefab: {fileID: 383282586856561209, guid: 3ddd6179c16b8b0419529f263b564e88, type: 3}
-    type: 1
-  - resourceName: Copper
-    icon: {fileID: 21300000, guid: 56abbefd40cb438409180e37ac1f0962, type: 3}
-    prefab: {fileID: 919132149155446097, guid: 2606eea66d22dc54f9b96494894b76f0, type: 3}
-    type: 2
   - resourceName: Gold
     icon: {fileID: 21300000, guid: e098202fa7310ac4ca7332fd880f935e, type: 3}
     prefab: {fileID: 826521387320792937, guid: 9737f38f54a41ec47b57ca2ba520f084, type: 3}
@@ -41,3 +33,27 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 7d392635986dd8b4a9edcd66c387b922, type: 3}
     prefab: {fileID: 919132149155446097, guid: 3b4058806009e054ba77fd12291b4a6a, type: 3}
     type: 7
+  - resourceName: Plank
+    icon: {fileID: 21300000, guid: 5f6ad97942aebe34abb3121cce9fc016, type: 3}
+    prefab: {fileID: 919132149155446097, guid: 3b4058806009e054ba77fd12291b4a6a, type: 3}
+    type: 100
+  - resourceName: StrongPlank
+    icon: {fileID: 21300000, guid: 39fb9d08291292545854b81fb62ce4be, type: 3}
+    prefab: {fileID: 919132149155446097, guid: 3b4058806009e054ba77fd12291b4a6a, type: 3}
+    type: 101
+  - resourceName: CoalIngot
+    icon: {fileID: 21300000, guid: 30a63bfa4b2ad4e42877ed5c82fdb7c8, type: 3}
+    prefab: {fileID: 919132149155446097, guid: 3b4058806009e054ba77fd12291b4a6a, type: 3}
+    type: 1
+  - resourceName: CopperIngot
+    icon: {fileID: 21300000, guid: 56abbefd40cb438409180e37ac1f0962, type: 3}
+    prefab: {fileID: 919132149155446097, guid: 3b4058806009e054ba77fd12291b4a6a, type: 3}
+    type: 2
+  - resourceName: Coal
+    icon: {fileID: 21300000, guid: 346f973450b56ec438133a89c455e34b, type: 3}
+    prefab: {fileID: 383282586856561209, guid: 3ddd6179c16b8b0419529f263b564e88, type: 3}
+    type: 102
+  - resourceName: Copper
+    icon: {fileID: 21300000, guid: 83b94048a8ee46b4cb8fddc6a876c7eb, type: 3}
+    prefab: {fileID: 919132149155446097, guid: 2606eea66d22dc54f9b96494894b76f0, type: 3}
+    type: 103
