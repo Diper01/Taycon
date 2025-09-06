@@ -1,9 +1,10 @@
-using _Game._Scripts.DataTypes.Resources;
 using _Game._Scripts.Features.GatheringZone.СooperationZones.Provider;
 using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource {
   public class ZoneView : MonoBehaviour, IZone {
+    
     [SerializeField] private Transform _workSpot;
+    [SerializeField] private Transform _spawnSpot;
     [SerializeField] private ResourceNodeView _provider;
     
     private bool _occupied;
@@ -17,6 +18,7 @@ namespace _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource {
     public void Release() => _occupied = false;
 
     public Transform WorkSpot => _workSpot;
+    public Transform SpawnSpot => _spawnSpot;
     public IResourceProvider Provider => _provider;
   }
 }

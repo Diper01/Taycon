@@ -6,7 +6,7 @@ namespace _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource {
 
     void Release();
     Transform WorkSpot { get; }
-    
+    Transform SpawnSpot { get; }
     IResourceProvider Provider { get; }
   }
 }

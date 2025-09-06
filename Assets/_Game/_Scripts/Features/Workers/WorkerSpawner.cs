@@ -13,7 +13,8 @@ namespace _Game._Scripts.Features.Workers {
     public void SpawnWorker(DropOffPointView dropOff,ResourceType resourceType) {
       _dropOff = dropOff;
       var workerPrefab = WorkerUtils.GetPrefabForResource(resourceType);
-      var view = Instantiate(workerPrefab, transform.position, Quaternion.identity);
+      var view = Instantiate(workerPrefab, _zone.SpawnSpot.position, Quaternion.identity);
+      
       IWorkerView workerView = view.GetComponent<IWorkerView>();
       _controller = new WorkerController(workerView, _zone, _dropOff, _workerInventoryCapacity);
     }

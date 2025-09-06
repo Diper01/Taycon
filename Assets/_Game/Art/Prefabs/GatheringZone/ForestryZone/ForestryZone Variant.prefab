@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _workSpot: {fileID: 530032669040689319}
+  _spawnSpot: {fileID: 6443022210662404454}
   _provider: {fileID: 6691960629119441798}
 --- !u!1 &4998079693058809491
 GameObject:
@@ -200,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc351e8f23541178b7028401f5c2422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _workerPrefab: {fileID: 9212802178486056145, guid: 5e1575e151862bb4d8bb4eac84a54568, type: 3}
   _zone: {fileID: 3284470669379389854}
   _workerInventoryCapacity: 2
 --- !u!1 &8880471182651363397
@@ -426,6 +426,11 @@ Transform:
 --- !u!4 &2823737696680410571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2579830896479324209, guid: edef989e7201cc44aa5ae784b49592a5, type: 3}
+  m_PrefabInstance: {fileID: 351994290776946170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6443022210662404454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6739846166898648220, guid: edef989e7201cc44aa5ae784b49592a5, type: 3}
   m_PrefabInstance: {fileID: 351994290776946170}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7229270942324926065 stripped

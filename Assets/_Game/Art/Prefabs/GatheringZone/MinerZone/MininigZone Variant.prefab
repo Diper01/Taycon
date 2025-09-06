@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _workSpot: {fileID: 1560303582772990378}
+  _spawnSpot: {fileID: 5446669031623737451}
   _provider: {fileID: 7044953948356736021}
 --- !u!1001 &619949491753940022
 PrefabInstance:
@@ -382,6 +383,11 @@ Transform:
 --- !u!4 &3878633135389420742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2579830896479324209, guid: edef989e7201cc44aa5ae784b49592a5, type: 3}
+  m_PrefabInstance: {fileID: 1593934249718211831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5446669031623737451 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6739846166898648220, guid: edef989e7201cc44aa5ae784b49592a5, type: 3}
   m_PrefabInstance: {fileID: 1593934249718211831}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7849694206697109855 stripped
