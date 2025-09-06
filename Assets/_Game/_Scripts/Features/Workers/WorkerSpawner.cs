@@ -5,19 +5,17 @@ namespace _Game._Scripts.Features.Workers {
   public class WorkerSpawner : MonoBehaviour {
     [SerializeField] private WorkerView _workerPrefab;
     [SerializeField] private ZoneView _zone;
-    [SerializeField] private DropOffPointView _dropOff;
+    private DropOffPointView _dropOff;
 
     private WorkerController _controller;
 
-    private void Start() {
-      SpawnWorker();
-    }
-
+    
     private void Update() {
       _controller?.Tick(Time.deltaTime);
     }
 
-    private void SpawnWorker() {
+    public void SpawnWorker(DropOffPointView dropOff) {
+      _dropOff = dropOff;
       var view = Instantiate(_workerPrefab, transform.position, Quaternion.identity);
       _controller = new WorkerController(view, _zone, _dropOff, capacity: 10);
     }

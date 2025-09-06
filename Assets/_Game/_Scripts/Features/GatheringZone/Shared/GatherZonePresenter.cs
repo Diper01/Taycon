@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using _Game._Scripts.DataTypes;
 using _Game._Scripts.DataTypes.Resources;
 using _Game._Scripts.Utils;
 using UnityEngine;
@@ -10,8 +9,8 @@ namespace _Game._Scripts.Features.GatheringZone.Shared {
     public GatherZonePresenter (IGatherZoneView view, ResourceType type) {
       _view = view;
       SpawnResource(type);
+      _view.WorkerSpawner.SpawnWorker(_view.GetDropOffPointView());
     }
-
     private void SpawnResource(ResourceType type) {
       List<Transform> points = _view.ParentForResourcePoint.Cast<Transform>().ToList();
       var prefab = ResourceUtils.GetPrefab(type);
@@ -20,6 +19,5 @@ namespace _Game._Scripts.Features.GatheringZone.Shared {
         Object.Instantiate(prefab, point.position, point.rotation, point.parent);
       }
     }
-    
   }
 }
