@@ -31,6 +31,5 @@ namespace _Game._Scripts.Features.Workers {
         _animator.SetBool("Carry", on);
     }
   }
-
-
+  
 }

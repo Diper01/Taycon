@@ -1,11 +1,16 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using _Game._Scripts.DataTypes.Resources;
 using _Game._Scripts.Features.GatheringZone.СooperationZones.InResource;
 using _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource;
 using _Game._Scripts.Features.InventoryStuff.WorkerInventory;
 using UnityEngine;
+using UnityEngine.AI;
+
 namespace _Game._Scripts.Features.Workers {
-  public class WorkerController {
-    public enum State { MovingToZone, Gathering, MovingToDropOff, Delivering }
+  public class WorkerController : IDisposable {
+    private enum State { MovingToZone, Gathering, MovingToDropOff, Delivering }
 
     private readonly IWorkerView _view;
     private readonly WorkerInventory _inventory;
@@ -14,87 +19,107 @@ namespace _Game._Scripts.Features.Workers {
     private readonly int _inventoryCapacity;
 
     private State _state;
-    private float _hitTimer;
-    private readonly int _maxPerHit = 2;
-    private readonly float _hitInterval = 1.2f;
+    private const int _maxPerHit = 2;
+    private const float _hitInterval = 1.2f;
+    private CancellationTokenSource _cts;
 
-
-    public WorkerController(IWorkerView view, ZoneView zone, DropOffPointView dropOff, int capacity) {
+    public WorkerController (IWorkerView view, ZoneView zone, DropOffPointView dropOff, int capacity) {
       _view = view;
       _zone = zone;
       _dropOff = dropOff;
       _inventory = new WorkerInventory(capacity);
       _inventoryCapacity = capacity;
+      _cts = new CancellationTokenSource();
       _state = State.MovingToZone;
-      MoveToZone();
+      _ = RunAsync(_cts.Token);
     }
 
-    public void Tick (float deltaTime) {
-      switch (_state) {
-        case State.MovingToZone:
-          if (Arrived(_zone.transform.position))
-            StartGathering();
+    public void Stop() {
+      if (_cts == null)
+        return;
 
-          break;
-        case State.Gathering:
-          _hitTimer += deltaTime;
+      _cts.Cancel();
+      _cts.Dispose();
+      _cts = null;
+    }
 
-          if (_hitTimer >= _hitInterval) {
-            _hitTimer = 0f;
-            _view.PlayHit();
-            var stack = _zone.Provider.GatherOnce(_maxPerHit);
+    public void Dispose()
+      => Stop();
 
-            if (stack.Amount > 0)
-              _inventory.Add(stack.Type, stack.Amount);
+    async UniTaskVoid RunAsync (CancellationToken ct) {
+      try {
+        while (!ct.IsCancellationRequested) {
+          switch (_state) {
+            case State.MovingToZone:
+              await MoveToAsync(_zone.transform.position, ct);
+
+              if (ct.IsCancellationRequested)
+                return;
+
+              await StartGatheringAsync(ct);
+              break;
+            case State.MovingToDropOff:
+              await MoveToAsync(_dropOff.transform.position, ct);
+
+              if (ct.IsCancellationRequested)
+                return;
+
+              await DeliverAsync(ct);
+              _state = State.MovingToZone;
+              break;
+            case State.Delivering:
+              _state = State.MovingToZone;
+              break;
           }
 
-          if (!_zone.Provider.HasResource || _inventory.Get(_zone.Provider.Type) >= _inventoryCapacity) {
-            _state = State.MovingToDropOff;
-            MoveTo(_dropOff.transform.position);
-          }
-
-          break;
-        case State.MovingToDropOff:
-          if (Arrived(_dropOff.transform.position))
-            Deliver();
-
-          break;
-        case State.Delivering:
-          _state = State.MovingToZone;
-          MoveToZone();
-          break;
+          await UniTask.Yield(PlayerLoopTiming.Update, ct);
+        }
+      } catch (OperationCanceledException) {} catch (Exception e) {
+        Debug.LogException(e);
+      } finally {
+        SafeStopAgent();
+        _view.PlayMove(false);
       }
     }
 
-    private void MoveToZone() {
-      MoveTo(_zone.transform.position);
+    private async UniTask MoveToAsync (Vector3 target, CancellationToken ct) {
+      NavMeshAgent agent = _view.Agent;
+      agent.isStopped = false;
+      agent.SetDestination(target);
       _view.PlayMove(true);
+      await UniTask.WaitUntil(() => !agent.pathPending, cancellationToken: ct);
+      await UniTask.WaitUntil(() => Arrived(agent), cancellationToken: ct);
+      agent.isStopped = true;
+      _view.PlayMove(false);
     }
 
-    private void MoveTo (Vector3 target) {
-      _view.Agent.isStopped = false;
-      _view.Agent.SetDestination(target);
-      _view.PlayMove(true);
-    }
-
-    private bool Arrived (Vector3 target) {
-      var agent = _view.Agent;
-
+    private static bool Arrived (NavMeshAgent agent) {
       if (agent.pathPending)
         return false;
 
       return agent.remainingDistance <= agent.stoppingDistance + 0.1f;
     }
 
-    private void StartGathering() {
+    private async UniTask StartGatheringAsync (CancellationToken ct) {
+      _state = State.Gathering;
       _view.Agent.isStopped = true;
       _view.PlayMove(false);
-      _hitTimer = 0f;
-      _state = State.Gathering;
+
+      while (!_cts.IsCancellationRequested && _zone.Provider.HasResource && _inventory.Get(_zone.Provider.Type) < _inventoryCapacity) {
+        _view.PlayHit();
+        var stack = _zone.Provider.GatherOnce(_maxPerHit);
+
+        if (stack.Amount > 0)
+          _inventory.Add(stack.Type, stack.Amount);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(_hitInterval), cancellationToken: ct);
+      }
+
+      _state = State.MovingToDropOff;
     }
 
-    private void Deliver() {
-      foreach (ResourceType type in System.Enum.GetValues(typeof(ResourceType))) {
+    private async UniTask DeliverAsync (CancellationToken ct) {
+      foreach (ResourceType type in Enum.GetValues(typeof(ResourceType))) {
         int amount = _inventory.Get(type);
 
         if (amount > 0) {
@@ -104,8 +129,15 @@ namespace _Game._Scripts.Features.Workers {
       }
 
       _view.PlayMove(false);
+      await UniTask.Yield(ct);
       _state = State.Delivering;
     }
 
+    private void SafeStopAgent() {
+      if (_view.Agent != null) {
+        _view.Agent.isStopped = true;
+        _view.Agent.ResetPath();
+      }
+    }
   }
 }

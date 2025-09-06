@@ -8,12 +8,7 @@ namespace _Game._Scripts.Features.Workers {
     [SerializeField] private int _workerInventoryCapacity = 2;
     private DropOffPointView _dropOff;
     private WorkerController _controller;
-
     
-    private void Update() {
-      _controller?.Tick(Time.deltaTime);
-    }
-
     public void SpawnWorker(DropOffPointView dropOff) {
       _dropOff = dropOff;
       var view = Instantiate(_workerPrefab, transform.position, Quaternion.identity);
