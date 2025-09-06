@@ -988,6 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656454225}
   - component: {fileID: 1656454224}
+  - component: {fileID: 1656454226}
   m_Layer: 0
   m_Name: GatherZoneController
   m_TagString: Untagged
@@ -1002,7 +1003,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656454223}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2965150e7b3c4c3d9d83d0daae23b043, type: 3}
   m_Name: 
@@ -1026,6 +1027,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656454226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656454223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b71bb98912a44efa3aa3384e7e0adfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: {fileID: 229630000}
+  _database: {fileID: 11400000, guid: f09d4b48d041fd441ac848a17bffa63f, type: 2}
+  _spawnRoot: {fileID: 221562607}
+  _offset: {x: 0, y: 0, z: 5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

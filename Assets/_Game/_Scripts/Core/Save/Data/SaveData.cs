@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using _Game._Scripts.DataTypes.Resources;
 namespace _Game._Scripts.Core.Save.Data {
-  
+
   [Serializable]
   public class SaveData {
     public int BuiltZonesCount;
