@@ -50,10 +50,10 @@ MonoBehaviour:
     prefab: {fileID: 0}
     type: 101
   - resourceName: CoalIngot
-    icon: {fileID: 21300000, guid: 83b94048a8ee46b4cb8fddc6a876c7eb, type: 3}
+    icon: {fileID: 21300000, guid: 346f973450b56ec438133a89c455e34b, type: 3}
     prefab: {fileID: 383282586856561209, guid: 3ddd6179c16b8b0419529f263b564e88, type: 3}
     type: 1
   - resourceName: CopperIngot
-    icon: {fileID: 21300000, guid: 346f973450b56ec438133a89c455e34b, type: 3}
+    icon: {fileID: 21300000, guid: 83b94048a8ee46b4cb8fddc6a876c7eb, type: 3}
     prefab: {fileID: 8601731205606461540, guid: 4bd8926bb352e4b4cb899ab9304072ab, type: 3}
     type: 2

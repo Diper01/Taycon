@@ -15,58 +15,56 @@ MonoBehaviour:
   zones:
   - zoneId: 0
     costs: []
-    resourceType: 6 # Wood
+    resourceType: 6
     gatherZoneFactory: {fileID: 11400000, guid: 3cff96a4af8ad4245b2c29561c99c25d, type: 2}
   - zoneId: 1
     costs:
-    - type: 6   # Wood
-      amount: 5
-    - type: 100 # Plank
+    - type: 100
       amount: 2
-    resourceType: 7 # Hardwood
+    resourceType: 7
     gatherZoneFactory: {fileID: 11400000, guid: 3cff96a4af8ad4245b2c29561c99c25d, type: 2}
   - zoneId: 2
     costs:
-    - type: 7   # Hardwood
-      amount: 6
-    - type: 101 # Plank
+    - type: 100
       amount: 3
-    resourceType: 1 # CoalIngot
+    - type: 101
+      amount: 2
+    resourceType: 1
     gatherZoneFactory: {fileID: 11400000, guid: c9cdd42aff1078247a50d3fe9ac8b1e0, type: 2}
   - zoneId: 3
     costs:
-    - type: 102 # Coal
+    - type: 102
       amount: 8
-    - type: 101 # StrongPlank
+    - type: 101
       amount: 4
-    resourceType: 2 # CopperIngot
+    resourceType: 2
     gatherZoneFactory: {fileID: 11400000, guid: c9cdd42aff1078247a50d3fe9ac8b1e0, type: 2}
   - zoneId: 4
     costs:
-    - type: 103 # Copper
+    - type: 103
       amount: 12
-    - type: 101 # StrongPlank
+    - type: 101
       amount: 6
-    resourceType: 3 # Gold
+    resourceType: 3
     gatherZoneFactory: {fileID: 11400000, guid: c9cdd42aff1078247a50d3fe9ac8b1e0, type: 2}
   - zoneId: 5
     costs:
-    - type: 3   # Gold
-      amount: 15
-    - type: 101 # StrongPlank
+    - type: 3
       amount: 5
-    - type: 5   # Emerald
-      amount: 2
-    resourceType: 5 # Emerald
+    - type: 101
+      amount: 5
+    - type: 100
+      amount: 5
+    resourceType: 5
     gatherZoneFactory: {fileID: 11400000, guid: c9cdd42aff1078247a50d3fe9ac8b1e0, type: 2}
   - zoneId: 6
     costs:
-    - type: 3   # Gold
-      amount: 20
-    - type: 101 # StrongPlank
+    - type: 3
+      amount: 4
+    - type: 103
       amount: 10
-    - type: 4   # Diamond
+    - type: 5
       amount: 3
-    resourceType: 4 # Diamond
+    resourceType: 4
     gatherZoneFactory: {fileID: 11400000, guid: c9cdd42aff1078247a50d3fe9ac8b1e0, type: 2}
   closedZoneFactory: {fileID: 11400000, guid: c4960361ede1be845b08d5b37c4224eb, type: 2}
