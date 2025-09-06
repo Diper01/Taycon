@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6559549986445473162}
   - component: {fileID: 427228932733366785}
   - component: {fileID: 9212802178486056145}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Worker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8530840912059735279}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
