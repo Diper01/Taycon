@@ -16,7 +16,7 @@ namespace _Game._Scripts.Features.Workers {
     private State _state;
     private float _hitTimer;
     private readonly int _maxPerHit = 2;
-    private readonly float _hitInterval = 0.6f;
+    private readonly float _hitInterval = 1.2f;
 
 
     public WorkerController(IWorkerView view, ZoneView zone, DropOffPointView dropOff, int capacity) {
