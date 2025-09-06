@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourcePriceSlotsView: {fileID: 6267706634038178546}
+  _UITransform: {fileID: 2548398079259323442}
   _buyButton: {fileID: 6134560192968254987}
 --- !u!1 &3751100248105861959
 GameObject:
