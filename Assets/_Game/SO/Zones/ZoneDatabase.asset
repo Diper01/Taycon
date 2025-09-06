@@ -61,6 +61,6 @@ MonoBehaviour:
       amount: 4
     - type: 4
       amount: 2
-    resourceType: 6
+    resourceType: 7
     gatherZoneFactory: {fileID: 11400000, guid: 3cff96a4af8ad4245b2c29561c99c25d, type: 2}
   closedZoneFactory: {fileID: 11400000, guid: c4960361ede1be845b08d5b37c4224eb, type: 2}

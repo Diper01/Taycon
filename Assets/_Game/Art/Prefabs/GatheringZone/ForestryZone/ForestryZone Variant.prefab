@@ -76,9 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 6
-  _totalUnits: 999
+  _totalUnits: 10
   _unitsPerHit: 1
-  _infinite: 1
+  _infinite: 0
 --- !u!1 &3945824842030461602
 GameObject:
   m_ObjectHideFlags: 0
