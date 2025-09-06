@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Game._Scripts.DataTypes.Resources;
 using _Game._Scripts.Features.Inventory;
+using _Game._Scripts.Features.InventoryStuff;
 using UnityEngine;
 namespace _Game._Scripts.Features.Resources.PriceView {
   public class ResourcePriceSlotsView : MonoBehaviour {

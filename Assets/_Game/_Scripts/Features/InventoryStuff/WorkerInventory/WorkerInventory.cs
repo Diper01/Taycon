@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Game._Scripts.DataTypes.Resources;
-namespace _Game._Scripts.Features.Inventory.WorkerInventory {
+namespace _Game._Scripts.Features.InventoryStuff.WorkerInventory {
   public class WorkerInventory : IInventory {
     private readonly Dictionary<ResourceType, int> _resources = new();
     private readonly int _capacity;

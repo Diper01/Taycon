@@ -1,7 +1,6 @@
 using System;
-using _Game._Scripts.DataTypes;
 using _Game._Scripts.DataTypes.Resources;
-namespace _Game._Scripts.Features.Inventory {
+namespace _Game._Scripts.Features.InventoryStuff {
   public interface IInventory {
     event Action<ResourceType, int> OnResourceChanged;
 

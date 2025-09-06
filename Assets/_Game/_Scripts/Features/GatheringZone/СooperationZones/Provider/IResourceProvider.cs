@@ -6,5 +6,7 @@ namespace _Game._Scripts.Features.GatheringZone.СooperationZones.Provider {
     ResourceType Type { get; }
 
     ResourceStack GatherOnce(int maxAmount);
+
+    public void SetResourceType (ResourceType type);
   }
 }

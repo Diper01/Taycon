@@ -1,7 +1,7 @@
 using _Game._Scripts.DataTypes.Resources;
-using _Game._Scripts.Features.GatheringZone.СooperationZones;
+using _Game._Scripts.Features.GatheringZone.СooperationZones.InResource;
 using _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource;
-using _Game._Scripts.Features.Inventory.WorkerInventory;
+using _Game._Scripts.Features.InventoryStuff.WorkerInventory;
 using UnityEngine;
 namespace _Game._Scripts.Features.Workers {
   public class WorkerController {
@@ -11,18 +11,20 @@ namespace _Game._Scripts.Features.Workers {
     private readonly WorkerInventory _inventory;
     private readonly ZoneView _zone;
     private readonly DropOffPointView _dropOff;
+    private readonly int _inventoryCapacity;
 
     private State _state;
     private float _hitTimer;
     private readonly int _maxPerHit = 2;
     private readonly float _hitInterval = 0.6f;
 
-    public WorkerController (IWorkerView view, ZoneView zone, DropOffPointView dropOff, int capacity = 2) {
+
+    public WorkerController(IWorkerView view, ZoneView zone, DropOffPointView dropOff, int capacity) {
       _view = view;
       _zone = zone;
       _dropOff = dropOff;
       _inventory = new WorkerInventory(capacity);
-
+      _inventoryCapacity = capacity;
       _state = State.MovingToZone;
       MoveToZone();
     }
@@ -105,7 +107,5 @@ namespace _Game._Scripts.Features.Workers {
       _state = State.Delivering;
     }
 
-    private int _inventoryCapacity
-      => 10;
   }
 }

@@ -47,4 +47,20 @@ MonoBehaviour:
       amount: 2
     resourceType: 5
     gatherZoneFactory: {fileID: 11400000, guid: c9cdd42aff1078247a50d3fe9ac8b1e0, type: 2}
+  - zoneId: 5
+    costs:
+    - type: 3
+      amount: 4
+    - type: 4
+      amount: 2
+    resourceType: 6
+    gatherZoneFactory: {fileID: 11400000, guid: 3cff96a4af8ad4245b2c29561c99c25d, type: 2}
+  - zoneId: 6
+    costs:
+    - type: 3
+      amount: 4
+    - type: 4
+      amount: 2
+    resourceType: 6
+    gatherZoneFactory: {fileID: 11400000, guid: 3cff96a4af8ad4245b2c29561c99c25d, type: 2}
   closedZoneFactory: {fileID: 11400000, guid: c4960361ede1be845b08d5b37c4224eb, type: 2}

@@ -6,7 +6,7 @@ using _Game._Scripts.Features.GatheringZone.ClosedZone;
 using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone.Controller {
   public class GatherZoneController : MonoBehaviour {
-    [SerializeField] private Inventory.Inventory _inventory;
+    [SerializeField] private InventoryStuff.Inventory _inventory;
     [SerializeField] private ZoneDatabase _database;
     [SerializeField] private Transform _spawnRoot;
     [SerializeField] private Vector3 _offset = new Vector3(5, 0, 0);

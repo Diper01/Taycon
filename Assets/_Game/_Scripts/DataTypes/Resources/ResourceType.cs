@@ -5,6 +5,8 @@ namespace _Game._Scripts.DataTypes.Resources {
     Copper = 2,
     Gold = 3,
     Diamond = 4,
-    Emerald = 5
+    Emerald = 5,
+    Wood = 6,
+    Hardwood = 7
   }
 }

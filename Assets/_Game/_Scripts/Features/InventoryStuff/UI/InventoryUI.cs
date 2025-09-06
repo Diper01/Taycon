@@ -6,7 +6,7 @@ using _Game._Scripts.Utils;
 using UnityEngine;
 namespace _Game._Scripts.Features.Inventory.UI {
  public class InventoryUI : MonoBehaviour {
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryStuff.Inventory inventory;
     [SerializeField] private Transform content;
     [SerializeField] private InventoryItemView itemPrefab;
 
@@ -16,7 +16,7 @@ namespace _Game._Scripts.Features.Inventory.UI {
 
     private void OnEnable() {
       if (inventory == null)
-        inventory = GetComponentInParent<Inventory>();
+        inventory = GetComponentInParent<InventoryStuff.Inventory>();
 
       BuildAllKnownTypes();
 

@@ -1,12 +1,12 @@
-using _Game._Scripts.Features.GatheringZone.СooperationZones;
+using _Game._Scripts.Features.GatheringZone.СooperationZones.InResource;
 using _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource;
 using UnityEngine;
 namespace _Game._Scripts.Features.Workers {
   public class WorkerSpawner : MonoBehaviour {
     [SerializeField] private WorkerView _workerPrefab;
     [SerializeField] private ZoneView _zone;
+    [SerializeField] private int _workerInventoryCapacity = 2;
     private DropOffPointView _dropOff;
-
     private WorkerController _controller;
 
     
@@ -17,7 +17,7 @@ namespace _Game._Scripts.Features.Workers {
     public void SpawnWorker(DropOffPointView dropOff) {
       _dropOff = dropOff;
       var view = Instantiate(_workerPrefab, transform.position, Quaternion.identity);
-      _controller = new WorkerController(view, _zone, _dropOff, capacity: 10);
+      _controller = new WorkerController(view, _zone, _dropOff, _workerInventoryCapacity);
     }
   }
 }

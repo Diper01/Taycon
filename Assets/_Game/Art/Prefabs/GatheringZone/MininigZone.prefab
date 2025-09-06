@@ -606,7 +606,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6967367071943168907}
-  - component: {fileID: 153417341192520711}
   m_Layer: 0
   m_Name: MininigZone
   m_TagString: Untagged
@@ -634,20 +633,6 @@ Transform:
   - {fileID: 7050733589811181355}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &153417341192520711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8858999981933534632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bda9b32d2fe1124ba23c755b69ab10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _parentForResourcePoint: {fileID: 8025278026416166792}
-  _workerSpawner: {fileID: 0}
 --- !u!1001 &5126298348734457735
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using _Game._Scripts.DataTypes.Resources;
 using _Game._Scripts.Features.GatheringZone.СooperationZones.Provider;
 using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource {
@@ -13,7 +14,6 @@ namespace _Game._Scripts.Features.GatheringZone.СooperationZones.OutResource {
       spot = _workSpot;
       return true;
     }
-
     public void Release() => _occupied = false;
 
     public Transform Transform => transform;

@@ -255,17 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9575e81fe144ff6875fcafbb9dd0614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start:
-  - type: 1
-    amount: 2
-  - type: 2
-    amount: 2
-  - type: 3
-    amount: 2
-  - type: 4
-    amount: 2
-  - type: 5
-    amount: 2
+  _dropOffPointView: {fileID: 1011314099}
 --- !u!1 &342028098
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11497f5fdae4089be931838e8fe5066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventory: {fileID: 0}
 --- !u!4 &1011314100
 Transform:
   m_ObjectHideFlags: 0

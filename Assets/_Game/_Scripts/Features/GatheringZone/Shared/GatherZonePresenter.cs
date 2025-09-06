@@ -5,18 +5,21 @@ using _Game._Scripts.Utils;
 using UnityEngine;
 namespace _Game._Scripts.Features.GatheringZone.Shared {
   public class GatherZonePresenter {
-    private IGatherZoneView _view;
+    private readonly IGatherZoneView _view;
     public GatherZonePresenter (IGatherZoneView view, ResourceType type) {
       _view = view;
       SpawnResource(type);
+      _view.ZoneView.Provider.SetResourceType(type);
       _view.WorkerSpawner.SpawnWorker(_view.GetDropOffPointView());
     }
-    private void SpawnResource(ResourceType type) {
+    private void SpawnResource (ResourceType type) {
       List<Transform> points = _view.ParentForResourcePoint.Cast<Transform>().ToList();
-      var prefab = ResourceUtils.GetPrefab(type);
+      GameObject prefab = ResourceUtils.GetPrefab(type);
 
-      foreach (var point in points) {
-        Object.Instantiate(prefab, point.position, point.rotation, point.parent);
+      foreach (Transform point in points) {
+        var res = Object.Instantiate(prefab, point.position, point.rotation, point.parent);
+        res.transform.localScale = point.localScale;
+        res.transform.SetParent(point);
       }
     }
   }
