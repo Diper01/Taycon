@@ -44,7 +44,7 @@ namespace _Game._Scripts.Features.UISwitcher {
 
       _current = state;
     }
-
+    
     public void Toggle (UIState a, UIState b) {
       Show(_current == a ? b : a);
     }

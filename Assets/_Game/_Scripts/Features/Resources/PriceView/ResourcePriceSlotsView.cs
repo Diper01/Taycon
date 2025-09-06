@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using _Game._Scripts.DataTypes.Resources;
-using _Game._Scripts.Features.Inventory;
 using _Game._Scripts.Features.InventoryStuff;
 using UnityEngine;
 namespace _Game._Scripts.Features.Resources.PriceView {
@@ -37,8 +36,8 @@ namespace _Game._Scripts.Features.Resources.PriceView {
       }
 
       _activeCount = price.Length;
-    }
-
+    }    
+    
     public void HideAll() {
       for (int i = 0; i < _pool.Count; i++)
         _pool[i].Disable();

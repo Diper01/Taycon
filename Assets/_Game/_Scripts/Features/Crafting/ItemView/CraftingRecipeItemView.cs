@@ -11,7 +11,6 @@ namespace _Game._Scripts.Features.Crafting.ItemView {
     [SerializeField] private Image _outputIcon;
     [SerializeField] private TMP_Text _outputAmountText;
     [SerializeField] private Button _craftButton;
-
     private IInventory _inventory;
     private CraftingSystem _crafting;
     private CraftingRecipe _recipe;
@@ -40,7 +39,6 @@ namespace _Game._Scripts.Features.Crafting.ItemView {
 
       RefreshState();
     }
-
     private void OnDestroy() {
       if (_inventory != null)
         _inventory.OnResourceChanged -= OnInvChanged;
